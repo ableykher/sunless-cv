@@ -1,0 +1,415 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>SunlessCv</title>
+    <base href="/">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="assets/img/hood.svg" />
+    <link rel="stylesheet" href="./assets/css/bootstrap.min.css" />
+    <script type="module" src="https://pyscript.net/snapshots/2023.09.1.RC2/core.js"></script>
+    <link rel="stylesheet" href="./sunlesscv.css" />
+  </head>
+  <body>
+
+    <div class="container">
+      <div class="row">
+        <div class="col col-md-3 col-lg-2 d-none d-md-block">
+
+          <div class="d-grid">
+            <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#creditsModal">
+              Credits
+            </button>
+          </div>
+
+          <table class="table table-dark table-sm">
+            <tbody>
+
+              <tr data-bs-toggle="tooltip" data-bs-title="Locations are meant to be explored, aren't they?" data-bs-trigger="hover" data-sunless-progress="explorer">
+                <td width="2em">
+                  <img src="assets/img/binoculars.svg" style="height: 2em;"/>
+                </td>
+                <td>
+                  Explorer
+                  <div class="progress" role="progressbar" aria-label="explorer" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="height: .5rem">
+                    <div class="progress-bar bg-info" style="width: 0%"></div>
+                  </div>
+                </td>
+              </tr>
+
+              <tr data-bs-toggle="tooltip" data-bs-title="Talk tech to me." data-bs-trigger="hover" data-sunless-progress="geek">
+                <td width="2em">
+                  <img src="assets/img/techno-heart.svg" style="height: 2em;"/>
+                </td>
+                <td>
+                  Geek
+                  <div class="progress" role="progressbar" aria-label="geek" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="height: .5rem">
+                    <div class="progress-bar bg-info" style="width: 0%"></div>
+                  </div>
+                </td>
+              </tr>
+
+              <tr class="invisible d-none" data-bs-toggle="tooltip" data-bs-title="Mind your actions, someone is watching you!" data-bs-trigger="hover" data-sunless-progress="watched">
+                <td width="2em">
+                  <img src="assets/img/hidden.svg" style="height: 2em;"/>
+                </td>
+                <td>
+                  Watched
+                  <div class="progress" role="progressbar" aria-label="watched" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="height: .5rem">
+                    <div class="progress-bar bg-danger" style="width: 0%"></div>
+                  </div>
+                </td>
+              </tr>
+
+              <tr class="invisible d-none" data-bs-toggle="tooltip" data-bs-title="You've crossed the line. Some opportunities may slip away." data-bs-trigger="hover" data-sunless-progress="distrust">
+                <td width="2em">
+                  <img src="assets/img/shattered-heart.svg" style="height: 2em;"/>
+                </td>
+                <td>
+                  Distrust
+                  <div class="progress" role="progressbar" aria-label="distrust" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="height: .5rem">
+                    <div class="progress-bar bg-danger" style="width: 0%"></div>
+                  </div>
+                </td>
+              </tr>
+
+            </tbody>
+          </table>
+
+        </div>
+
+        <div class="col col-md-9 col-lg-10 py-2 ps-2" id="adventurePanel">
+
+          <div class="card">
+            <div class="row g-0">
+              <div class="col-2 col-lg-1">
+                <img src="assets/img/treasure-map.svg" class="img-fluid rounded"/>
+              </div>
+              <div class="col-10 col-lg-11">
+                <div class="card-body p-2">
+                  <h4 class="card-title">Welcome!</h4>
+                  <p class="card-text">
+                    <span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
+                    <span role="status">Loading... Please wait</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <nav class="navbar bg-dark fixed-bottom d-block d-md-none" data-bs-theme="dark">
+      <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#statusNavbar" aria-controls="statusNavbar" aria-label="Open status panel">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="offcanvas offcanvas-start" tabindex="-1" id="statusNavbar">
+          <div class="offcanvas-body">
+            <div class="d-grid">
+              <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#creditsModal">
+                Credits
+              </button>
+
+              <table class="table table-dark table-sm">
+                <tbody>
+
+                  <tr data-bs-toggle="tooltip" data-bs-title="Locations are meant to be explored, aren't they?" data-bs-trigger="hover" data-sunless-progress="explorer">
+                    <td width="2em">
+                      <img src="assets/img/binoculars.svg" style="height: 2em;"/>
+                    </td>
+                    <td>
+                      Explorer
+                      <div class="progress" role="progressbar" aria-label="explorer" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="height: .5rem">
+                        <div class="progress-bar bg-info" style="width: 0%"></div>
+                      </div>
+                    </td>
+                  </tr>
+
+                  <tr data-bs-toggle="tooltip" data-bs-title="Talk tech to me." data-bs-trigger="hover" data-sunless-progress="geek">
+                    <td width="2em">
+                      <img src="assets/img/techno-heart.svg" style="height: 2em;"/>
+                    </td>
+                    <td>
+                      Geek
+                      <div class="progress" role="progressbar" aria-label="geek" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="height: .5rem">
+                        <div class="progress-bar bg-info" style="width: 0%"></div>
+                      </div>
+                    </td>
+                  </tr>
+
+                  <tr class="invisible d-none" data-bs-toggle="tooltip" data-bs-title="Mind your actions, someone is watching you!" data-bs-trigger="hover" data-sunless-progress="watched">
+                    <td width="2em">
+                      <img src="assets/img/hidden.svg" style="height: 2em;"/>
+                    </td>
+                    <td>
+                      Watched
+                      <div class="progress" role="progressbar" aria-label="watched" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="height: .5rem">
+                        <div class="progress-bar bg-danger" style="width: 0%"></div>
+                      </div>
+                    </td>
+                  </tr>
+
+                  <tr class="invisible d-none" data-bs-toggle="tooltip" data-bs-title="You've crossed the line. Some opportunities may slip away." data-bs-trigger="hover" data-sunless-progress="distrust">
+                    <td width="2em">
+                      <img src="assets/img/shattered-heart.svg" style="height: 2em;"/>
+                    </td>
+                    <td>
+                      Distrust
+                      <div class="progress" role="progressbar" aria-label="distrust" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="height: .5rem">
+                        <div class="progress-bar bg-danger" style="width: 0%"></div>
+                      </div>
+                    </td>
+                  </tr>
+
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div class="modal fade" id="creditsModal" tabindex="-1" aria-labelledby="creditsModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="creditsModalLabel">Credits</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <p>
+              The site tries to mimic the game style of "Fallen London", "Sunless Sea" and "Sunless Skies". Fallen London is &copy; 2023 and &trade; Failbetter Games Limited: <a href="https://www.fallenlondon.com" target="_blank">www.fallenlondon.com</a>. This is an unofficial fan work.
+            </p>
+
+            <hr>
+
+            <p>
+              The site uses unchanged icons from <a href="https://game-icons.net" target="_blank">game-icons.net</a> created by <a href="http://lorcblog.blogspot.com/" target="_blank">Lorc</a>, <a href="http://delapouite.com/" target="_blank">Delapouite</a> &amp; <a href="https://game-icons.net/about.html#authors" target="_blank">contributors</a>. The icons are licensed under <a href="http://creativecommons.org/licenses/by/3.0/" target="_blank">CC BY 3.0</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="./assets/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+      const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+      const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+    </script>
+
+    <script type="py" config="./pyscript.json">
+        from collections import deque
+
+        from js import window, document
+        from pyodide.ffi import create_proxy
+
+        from sunlessadventure.core.adventure import Adventure, AdventureStateError
+
+        from sunlesscv.identifier import LocationId
+        from sunlesscv.progress.location import LocationTracker
+        from sunlesscv.progress.competence import CompetenceTracker
+        from sunlesscv.progress.distrust import DistrustTracker
+        from sunlesscv.progress.watch import WatchTracker
+        from sunlesscv.progress.manager import ProgressManager
+        from sunlesscv.location.factory import LocationFactory
+
+        progress_manager = ProgressManager(
+            location_tracker=LocationTracker(),
+            competence_tracker=CompetenceTracker(),
+            distrust_tracker=DistrustTracker(),
+            watch_tracker=WatchTracker(),
+        )
+
+        location_factory = LocationFactory(progress_manager=progress_manager)
+        location_id = window.location.hash.lstrip("#")
+
+        if not location_id:
+            location_id = LocationId.HOME.value
+
+        adventure = Adventure(location_factory=location_factory, start_location_id=location_id)
+
+
+        def render_adventure():
+            """Render the adventure."""
+            try:
+                described_location = adventure.describe_location()
+                render_location(described_location)
+            except AdventureStateError:
+                described_consequence = adventure.describe_consequence()
+                render_consequence(described_consequence)
+
+
+        def render_location(location):
+            """Render a location."""
+            location_html = f"""
+                <div class="card" id="location">
+                  <div class="row g-0">
+                    <div class="col-2 col-lg-1">
+                      <img src="assets/img/{location['depiction']['image']}" class="img-fluid rounded"/>
+                    </div>
+                    <div class="col-10 col-lg-11">
+                      <div class="card-body p-2">
+                        <h4 class="card-title">{location['depiction']['title']}</h4>
+                        <p class="card-text">{location['depiction']['description']}</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            """
+
+            actions_html = ""
+            for action_index, action in enumerate(location['actions']):
+                actions_html += f"""
+                    <div class="col" id="action{action_index}">
+                      <div class="card">
+                        <div class="row g-0">
+                          <div class="col-2 col-lg-1">
+                            <img src="assets/img/{action['depiction']['image']}" class="img-fluid rounded"/>
+                          </div>
+                          <div class="col-10 col-lg-11">
+                            <div class="card-body p-2">
+                              <h4 class="card-title">{action['depiction']['title']}</h4>
+                              <p class="card-text">{action['depiction']['description']}</p>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card-footer p-2 text-end">
+                          <button class="btn btn-primary" py-click="perform_action" data-sunless-action-index="{action_index}">
+                            {action['name']}
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                """
+
+            if actions_html:
+                location_html += f"""
+                    <div class="row row-cols-1 ps-2 pt-2 row-gap-2" id="locationActionsListTemplate">
+                      {actions_html}
+                    </div>
+                """
+
+            if location["exit"] is not None:
+                location_html += f"""
+                    <button class="btn btn-dark mt-2" id="locationExit" py-click="leave_location">
+                      &larr; {location['exit']}
+                    </button>
+                """
+
+            document.querySelector("#adventurePanel").innerHTML = location_html
+            window.location.hash = f"#{location['id']}"
+
+
+        def render_consequence(consequence):
+            """Render a consequence."""
+            details_html = ""
+            for detail_index, detail in enumerate(consequence["details"]):
+                details_html += f"""
+                    <li class="list-group-item" id="detail{detail_index}">
+                      <img src="assets/img/{detail['image']}" class="float-start rounded pe-2" style="height:2em;"/>
+                      {detail['description']}
+                    </li>
+                """
+
+            consequence_html = f"""
+                <div class="card" id="consequence">
+                  <div class="row g-0">
+                    <div class="col-2 col-lg-1">
+                      <img src="assets/img/{consequence['depiction']['image']}" class="img-fluid rounded"/>
+                    </div>
+                    <div class="col-10 col-lg-11">
+                      <div class="card-body p-2">
+                        <h4 class="card-title">{consequence['depiction']['title']}</h4>
+                        <p class="card-text">{consequence['depiction']['description']}</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row row-cols-1 ps-2 pt-2 row-gap-2">
+                  <div class="col">
+                    <div class="card">
+                      <ul class="list-group list-group-flush">
+                        {details_html}
+                      </ul>
+                      <div class="card-footer p-2 text-end">
+                        <button class="btn btn-primary" py-click="resolve_consequence">
+                          {consequence['resolution']}
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            """
+
+            document.querySelector("#adventurePanel").innerHTML = consequence_html
+
+
+        def update_status():
+            """Update status."""
+            explorer_progress = progress_manager.location_tracker.get_progress_percentage()
+            for element in document.querySelectorAll(f"[data-sunless-progress='explorer']"):
+                element.querySelector(".progress").setAttribute("aria-valuenow", str(explorer_progress))
+                element.querySelector(".progress-bar").style.width = f"{explorer_progress}%"
+
+            geek_progress = progress_manager.competence_tracker.get_progress_percentage()
+            for element in document.querySelectorAll(f"[data-sunless-progress='geek']"):
+                element.querySelector(".progress").setAttribute("aria-valuenow", str(geek_progress))
+                element.querySelector(".progress-bar").style.width = f"{geek_progress}%"
+
+            watched_progress = progress_manager.watch_tracker.get_progress_percentage()
+            for element in document.querySelectorAll(f"[data-sunless-progress='watched']"):
+                element.querySelector(".progress").setAttribute("aria-valuenow", str(watched_progress))
+                element.querySelector(".progress-bar").style.width = f"{watched_progress}%"
+                if watched_progress:
+                    element.classList.remove("invisible")
+                    element.classList.remove("d-none")
+                else:
+                    element.classList.add("invisible")
+                    element.classList.add("d-none")
+
+            distrust_progress = progress_manager.distrust_tracker.get_progress_percentage()
+            for element in document.querySelectorAll(f"[data-sunless-progress='distrust']"):
+                element.querySelector(".progress").setAttribute("aria-valuenow", str(distrust_progress))
+                element.querySelector(".progress-bar").style.width = f"{distrust_progress}%"
+                if distrust_progress:
+                    element.classList.remove("invisible")
+                    element.classList.remove("d-none")
+                else:
+                    element.classList.add("invisible")
+                    element.classList.add("d-none")
+
+
+        def leave_location(event):
+            """Leave the location."""
+            adventure.leave_location()
+            render_adventure()
+            update_status()
+
+
+        def perform_action(event):
+            """Perform an action."""
+            action_index = int(event.target.getAttribute("data-sunless-action-index"))
+            adventure.perform_action(action_index)
+            render_adventure()
+            update_status()
+
+
+        def resolve_consequence(event):
+            """Resolve a consequence."""
+            adventure.resolve_consequence()
+            render_adventure()
+            update_status()
+
+
+        render_adventure()
+        update_status()
+
+    </script>
+
+  </body>
+</html>

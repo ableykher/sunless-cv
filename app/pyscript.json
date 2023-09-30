@@ -1,0 +1,53 @@
+{
+  "name": "SunlessCV",
+  "splashscreen": {
+    "enabled": true
+  },
+  "fetch": [
+    {
+      "files": [
+        "./sunlessadventure/__init__.py",
+        "./sunlessadventure/abstract/__init__.py",
+        "./sunlessadventure/abstract/action.py",
+        "./sunlessadventure/abstract/location.py",
+        "./sunlessadventure/abstract/outcome.py",
+        "./sunlessadventure/abstract/depiction.py",
+        "./sunlessadventure/core/__init__.py",
+        "./sunlessadventure/core/location/__init__.py",
+        "./sunlessadventure/core/location/static.py",
+        "./sunlessadventure/core/action/__init__.py",
+        "./sunlessadventure/core/action/static.py",
+        "./sunlessadventure/core/depiction/__init__.py",
+        "./sunlessadventure/core/depiction/static.py",
+        "./sunlessadventure/core/outcome/__init__.py",
+        "./sunlessadventure/core/outcome/static.py",
+        "./sunlessadventure/core/adventure.py"
+      ]
+    },
+    {
+      "files": [
+        "./sunlesscv/__init__.py",
+        "./sunlesscv/progress/__init__.py",
+        "./sunlesscv/progress/abstract.py",
+        "./sunlesscv/progress/manager.py",
+        "./sunlesscv/progress/location.py",
+        "./sunlesscv/progress/competence.py",
+        "./sunlesscv/progress/distrust.py",
+        "./sunlesscv/progress/watch.py",
+        "./sunlesscv/identifier.py",
+        "./sunlesscv/location/__init__.py",
+        "./sunlesscv/location/base.py",
+        "./sunlesscv/location/stable.py",
+        "./sunlesscv/location/factory.py",
+        "./sunlesscv/location/_story/__init__.py",
+        "./sunlesscv/location/_story/home.py",
+        "./sunlesscv/location/_story/maze.py",
+        "./sunlesscv/location/_story/hallway.py",
+        "./sunlesscv/location/_story/profession.py",
+        "./sunlesscv/location/_story/technology.py",
+        "./sunlesscv/location/_story/company.py",
+        "./sunlesscv/location/_story/personality.py"
+      ]
+    }
+  ]
+}
